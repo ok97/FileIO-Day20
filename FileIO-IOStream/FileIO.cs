@@ -26,8 +26,32 @@ namespace FileIO_IOStream
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.ToString()); 
+            }
+
+        }
+        public static void CheckFileExixt()
+        {/* 2:- The File exists method is used to check if a particular file exists. 
+                So now let's see the code which can be used to check if our .txt file exists or not.
+          */
+            string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path
+            try
+            {
+                if (File.Exists(path)) //Check file exixt or not using Exist method
+                {
+                    Console.WriteLine("File Already Exist"); //print
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist"); //print
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message); 
             }
         }
+
     }
 }

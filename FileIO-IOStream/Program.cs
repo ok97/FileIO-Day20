@@ -11,6 +11,7 @@ namespace FileIO_IOStream
         static void Main(string[] args)
         {
             FileIO.CreateFile();
+            FileIO.CheckFileExixt();
             Console.ReadLine();
         }
     }
