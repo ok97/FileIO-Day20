@@ -65,7 +65,7 @@ namespace FileIO_IOStream
                     using (StreamReader sr = File.OpenText(path)) //method reads a line of characters from the current stream and returns the data as a string. 
                     {
                         string s = "";
-                        String  line;
+                        String line;
                         if ((s = sr.ReadLine()) != null)
                         {
                             line = File.ReadAllText(path);
@@ -111,6 +111,32 @@ namespace FileIO_IOStream
                 {
                     File.Copy(Source, Destination); //Copy file using Copy method
                     Console.WriteLine("File Successfully Copy");
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
+
+        /* 5:- The method is used to delete an existing file.
+         */
+        public static void DeleteFile()
+        {
+            try
+            {
+                string Destination = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CopyOm.txt"; //Set file Location/ Path  
+                if (File.Exists(Destination)) //Check file exixt or not
+                {
+                    File.Delete(Destination); //Delete file using Copy method
+                    Console.WriteLine("File Successfully Delete");
                 }
                 else
                 {

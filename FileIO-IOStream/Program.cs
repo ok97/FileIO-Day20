@@ -12,8 +12,9 @@ namespace FileIO_IOStream
         {
             //FileIO.CreateFile();
             //FileIO.CheckFileExixt();
-           FileIO.ReadFileLine();
-            FileIO.CopyDataFile();
+            //FileIO.ReadFileLine();
+            //FileIO.CopyDataFile();
+            FileIO.DeleteFile();
 
             Console.ReadLine();
         }
