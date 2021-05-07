@@ -10,9 +10,10 @@ namespace FileIO_IOStream
     {
         static void Main(string[] args)
         {
-            FileIO.CreateFile();
-            FileIO.CheckFileExixt();
-            FileIO.ReadFileLine();
+            //FileIO.CreateFile();
+            //FileIO.CheckFileExixt();
+           FileIO.ReadFileLine();
+            FileIO.CopyDataFile();
 
             Console.ReadLine();
         }

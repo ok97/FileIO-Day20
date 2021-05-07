@@ -62,23 +62,29 @@ namespace FileIO_IOStream
                 string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
                 if (File.Exists(path))
                 {
-                   
-                    //using (StreamReader sr = File.OpenText(path)) //method reads a line of characters from the current stream and returns the data as a string. 
-                    //{
-                    //    string s = "";
-                    //    while ((s = sr.ReadLine()) != null)
-                    //    {
-                    //        Console.WriteLine(s);
-                    //    }
-                    //}
-
-                    string[] Content = File.ReadAllLines(path);
-
-                    foreach (string line in Content) //iterate content
+                    using (StreamReader sr = File.OpenText(path)) //method reads a line of characters from the current stream and returns the data as a string. 
                     {
-                        Console.WriteLine(line); //print content
+                        string s = "";
+                        String  line;
+                        if ((s = sr.ReadLine()) != null)
+                        {
+                            line = File.ReadAllText(path);
 
+                            Console.WriteLine(line);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Content Not Found");
+                        }
                     }
+
+                    //string[] Content = File.ReadAllLines(path);
+
+                    //foreach (string line in Content) //iterate content
+                    //{
+                    //    Console.WriteLine(line); //print content
+
+                    //}
                 }
                 else
                 {
@@ -92,5 +98,30 @@ namespace FileIO_IOStream
             }
         }
 
+
+        /* 4:- The method is used to make a copy of an existing file.
+        */
+        public static void CopyDataFile() //Create copyFile method to use copy file one file to another
+        {
+            try
+            {
+                string Source = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path    
+                string Destination = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CopyOm.txt"; //Set file Location/ Path  
+                if (File.Exists(Source)) //Check file exixt or not
+                {
+                    File.Copy(Source, Destination); //Copy file using Copy method
+                    Console.WriteLine("File Successfully Copy");
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
