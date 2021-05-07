@@ -17,16 +17,16 @@ namespace FileIO_IOStream
             {
                 using (FileStream filestream = File.Create(path)) // Create the file or overwrite if the file exists
                 {
-                    byte[] info = new UTF8Encoding(true).GetBytes("Welcome Omprakash"); // Adding information to the created file.
+                    byte[] info = new UTF8Encoding(true).GetBytes("Hello world\nchange world through coding"); // Adding information to the created file.
 
-                    filestream.Write(info, 0, info.Length); 
+                    filestream.Write(info, 0, info.Length);
                 }
                 Console.WriteLine($"File Successfully Created This Location\n{path}"); //rint msg
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString()); 
+                Console.WriteLine(ex.ToString());
             }
 
         }
@@ -39,7 +39,7 @@ namespace FileIO_IOStream
             {
                 if (File.Exists(path)) //Check file exixt or not using Exist method
                 {
-                    Console.WriteLine("File Already Exist"); //print
+                    Console.WriteLine("File Exist"); //print
                 }
                 else
                 {
@@ -49,7 +49,46 @@ namespace FileIO_IOStream
             catch (Exception ex)
             {
 
-                Console.WriteLine(ex.Message); 
+                Console.WriteLine(ex.Message);
+            }
+        }
+        /* 3:- The method is used to read all the lines one by one in a file. 
+               The lines are then stored in a string array variable
+        */
+        public static void ReadFileLine()
+        {
+            try
+            {
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
+                if (File.Exists(path))
+                {
+                   
+                    //using (StreamReader sr = File.OpenText(path)) //method reads a line of characters from the current stream and returns the data as a string. 
+                    //{
+                    //    string s = "";
+                    //    while ((s = sr.ReadLine()) != null)
+                    //    {
+                    //        Console.WriteLine(s);
+                    //    }
+                    //}
+
+                    string[] Content = File.ReadAllLines(path);
+
+                    foreach (string line in Content) //iterate content
+                    {
+                        Console.WriteLine(line); //print content
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
             }
         }
 
