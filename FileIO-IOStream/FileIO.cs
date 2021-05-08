@@ -147,7 +147,34 @@ namespace FileIO_IOStream
             {
 
                 Console.WriteLine(ex.Message);
+            }       
+
+        }
+        /* 6:- The stream writer is used to write data to a file using streams. 
+                   The data from the application is first written into the stream. 
+                   After that the stream writes the data to the file.
+             */
+
+        public static void StreamWriter() // Create Stream Writer Method
+        {
+            try
+            { 
+            string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
+            using (StreamWriter sr = File.AppendText(path)) 
+            {
+                sr.WriteLine("Hello Word - .Net is Awesome"); //Write file content
+               // sr.WriteLine("Hello"); //Write file content
+                sr.Close(); //Close method close file
+                Console.WriteLine(File.ReadAllText(path)); //Print
+
+            }
+            Console.WriteLine($"File Successfully Created This Location\n{path}"); //Print msg
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
+
     }
 }
