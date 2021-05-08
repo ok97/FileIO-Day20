@@ -124,8 +124,6 @@ namespace FileIO_IOStream
             }
         }
 
-
-
         /* 5:- The method is used to delete an existing file.
          */
         public static void DeleteFile()
@@ -147,7 +145,7 @@ namespace FileIO_IOStream
             {
 
                 Console.WriteLine(ex.Message);
-            }       
+            }
 
         }
         /* 6:- The stream writer is used to write data to a file using streams. 
@@ -158,23 +156,63 @@ namespace FileIO_IOStream
         public static void StreamWriter() // Create Stream Writer Method
         {
             try
-            { 
-            string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
-            using (StreamWriter sr = File.AppendText(path)) 
             {
-                sr.WriteLine("Hello Word - .Net is Awesome"); //Write file content
-               // sr.WriteLine("Hello"); //Write file content
-                sr.Close(); //Close method close file
-                Console.WriteLine(File.ReadAllText(path)); //Print
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
+                using (StreamWriter sr = File.AppendText(path))
+                {
+                    sr.WriteLine("Hello Word - .Net is Awesome"); //Write file content
+                                                                  // sr.WriteLine("Hello"); //Write file content
+                    sr.Close(); //Close method close file
 
+
+                }
+                Console.WriteLine($"File Successfully Created This Location And Writting Content of File\n{path}"); //Print msg
             }
-            Console.WriteLine($"File Successfully Created This Location\n{path}"); //Print msg
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
 
+        /* 7:- The stream reader is used to read data from a file using streams. 
+               The data from the file is first read into the stream. 
+               Thereafter the application reads the data from the stream.
+        */
+
+        public static void StreamReader()
+        {
+            try
+            {
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
+                if (File.Exists(path))
+                {
+                    using (StreamReader sr = File.OpenText(path)) //method reads a line of characters from the current stream and returns the data as a string. 
+                    {
+                        string s = "";
+                        String line;
+                        if ((s = sr.ReadLine()) != null)
+                        {
+                            line = File.ReadAllText(path);
+
+                            Console.WriteLine(line);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Content Not Found"); //print content not foun
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist"); //print
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
+
