@@ -22,7 +22,9 @@ namespace FileIO_IOStream
             //JSONOperation.JSONSerialization();
             //JSONOperation.JSONDesrialization();
             // XMLOperation.XMLSerialization();
-            XMLOperation.XMLDeserialization();
+            //XMLOperation.XMLDeserialization();
+            //CSVOperation.CSVReadOperation();
+           CSVOperation.CSVWriteOperation();
 
             Console.ReadLine();
         }
