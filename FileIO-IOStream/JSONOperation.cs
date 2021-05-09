@@ -1,0 +1,48 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading.Tasks;
+namespace FileIO_IOStream
+{
+    class JSONOperation
+    {
+        /* JSON (JavaScript Object Notation) is a lightweight data-interchange format. 
+           It is easy for humans to read and write and easy for machines to parse and generate. 
+           JSON is a text format that is completely language independent.
+         */
+
+        public static void JSONSerialization()
+        {
+            try
+            {
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\JSONSerialization.json"; //Set path to create file
+                Details details = new Details() //crtate object of Contact Class and initilize data
+                {FirstName = "Omprakash", LastName = "Khawshi" ,Address = "Alandi", City = "Pune" ,Pin = "412105", Number = "8788616249" }; //initilize data
+                
+                string result = JsonConvert.SerializeObject(details); //convert Details object to JSON String Formatt and store result veriable
+                File.WriteAllText(path, result);
+                Console.WriteLine($"File Successfully Created JSONSerialization.json And Serialize Content"); //Print msg
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
+        }              
+
+    }
+    public class Details
+    {
+        public string FirstName { get; set; } 
+        public string LastName { get; set; } 
+        public string Address { get; set; } 
+        public string City { get; set; } 
+        public string Pin { get; set; }
+        public string Number { get; set; } 
+    }
+
+}

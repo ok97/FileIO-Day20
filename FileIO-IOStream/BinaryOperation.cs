@@ -52,7 +52,7 @@ namespace FileIO_IOStream
 
     }
     [Serializable]
-    class Data
+   public class Data
     {
         public string FirstName { get; set; } = "Omprakash";
         public string LastName { get; set; } = "Khawshi";
