@@ -27,6 +27,26 @@ namespace FileIO_IOStream
                 System.Console.WriteLine(ex.Message);
             }
         }
+
+
+        public static void XMLDeserialization()
+        {
+            try
+            {
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\XMLSerialization.xml"; //Set path to create file
+                
+                FileStream fstream = new FileStream(path, FileMode.Open); //FileStream class create object and pass Path or create and open file
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(Content)); //Create object XmlSerializer Class default class
+                Content store = (Content)xmlSerializer.Deserialize(fstream); // DeserializeObject of Details
+                Console.WriteLine($"File Successfully Deserialization"); //Print msg
+                
+                Console.WriteLine($"FirstName:- {store.FirstName}\nLastName:- {store.LastName}\nAddress:- {store.Address}\nCity:- {store.City}\nPin:- {store.Pin}\nNumber:- {store.Number}"); //Print data
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
+        }
     }
     public class Content
     {
