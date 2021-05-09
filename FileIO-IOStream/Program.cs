@@ -19,7 +19,8 @@ namespace FileIO_IOStream
             // FileIO.StreamReader();
             //BinaryOperation.BinarySerialization();
             //BinaryOperation.BinaryDeserialization();
-            JSONOperation.JSONSerialization();
+            //JSONOperation.JSONSerialization();
+            JSONOperation.JSONDesrialization();
 
             Console.ReadLine();
         }
