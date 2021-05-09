@@ -158,10 +158,9 @@ namespace FileIO_IOStream
             try
             {
                 string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\Om.txt"; //Set file Location/ Path  
-                using (StreamWriter sr = File.AppendText(path))
+                using (StreamWriter sr = File.AppendText(path)) //create object of StreamWriter class
                 {
                     sr.WriteLine("Hello Word - .Net is Awesome"); //Write file content
-                                                                  // sr.WriteLine("Hello"); //Write file content
                     sr.Close(); //Close method close file
 
 
@@ -213,6 +212,10 @@ namespace FileIO_IOStream
                 Console.WriteLine(ex.Message);
             }
         }
+
+
+
+
     }
 }
 
