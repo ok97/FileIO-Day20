@@ -14,10 +14,11 @@ namespace FileIO_IOStream
             //FileIO.CheckFileExixt();
             //FileIO.ReadFileLine();
             //FileIO.CopyDataFile();
-          // FileIO.DeleteFile();
-          // FileIO.StreamWriter();
-           // FileIO.StreamReader();
-            BinaryOperation.BinarySerialization();
+            // FileIO.DeleteFile();
+            // FileIO.StreamWriter();
+            // FileIO.StreamReader();
+           //BinaryOperation.BinarySerialization();
+            BinaryOperation.BinaryDeserialization();
 
             Console.ReadLine();
         }
