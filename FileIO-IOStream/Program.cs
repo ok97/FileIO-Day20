@@ -22,11 +22,12 @@ namespace FileIO_IOStream
             //JSONOperation.JSONSerialization();
             //JSONOperation.JSONDesrialization();
             // XMLOperation.XMLSerialization();
-            //XMLOperation.XMLDeserialization();
-            //CSVOperation.CSVReadOperation();
-           CSVOperation.CSVWriteOperation();
+            //XMLOperation.XMLDeserialization();            
+            //CSVOperation.CSVWriteOperation();
+            // CSVOperation.CSVReadOperation();
+            ThirdPartyLibraryOperation.CSVToJSON();
 
-            Console.ReadLine();
+            Console.ReadLine(); //Reading from CSV To Json File and writing Json File
         }
     }
 }

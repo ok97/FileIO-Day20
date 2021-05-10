@@ -12,26 +12,26 @@ namespace FileIO_IOStream
 {
     class CSVOperation
     {
-        
-
         public static void CSVWriteOperation()
         {
             try
             {
                 string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CSVData.csv"; //Set path to create file
-                string Destination = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CopyCSVData.csv"; //Set path to create file                                                                                                                                                                                                          
+                string Destination = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CopyCSVData.csv"; //Set path to create file  copy file                                                                                                                                                                                                        
                 var reader = new StreamReader(path);
                 var csvRead = new CsvReader(reader, CultureInfo.InvariantCulture); //csv reader
-                
+
                 var personDetails = csvRead.GetRecords<SetDetails>().ToList();//Generic method Read all record using getRecord method
-                                   
-               
-                using (var writer = new StreamWriter(Destination)) 
-               
-                    using (var csvWtiter = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                { 
-                        csvWtiter.WriteRecords(personDetails);
+
+                
+
+                using (var writer = new StreamWriter(Destination))
+
+                using (var csvWtiter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvWtiter.WriteRecords(personDetails);
                 }
+
                 Console.WriteLine($"Successfully Write Content Thise location \n{Destination}");
 
             }
@@ -47,15 +47,22 @@ namespace FileIO_IOStream
             try
             {
                 string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CSVData.csv"; //Set path to create file
-                                                                                                             // FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-                var reader = new StreamReader(path);
-                var csvRead = new CsvReader(reader, CultureInfo.InvariantCulture); //csv reader
-                var personDetails = csvRead.GetRecords<SetDetails>().ToList();//Generic method Read all record using getRecord method
-                foreach (SetDetails item in personDetails)
+                if (File.Exists(path))
                 {
-                    Console.WriteLine($"name:- {item.name} email:- {item.email} phone:- {item.phone} country:- {item.country}");
+
+                    var reader = new StreamReader(path);
+                    var csvRead = new CsvReader(reader, CultureInfo.InvariantCulture); //csv reader
+                    var personDetails = csvRead.GetRecords<SetDetails>().ToList();//Generic method Read all record using getRecord method
+                    foreach (SetDetails item in personDetails)
+                    {
+                        Console.WriteLine($"name:- {item.name} email:- {item.email} phone:- {item.phone} country:- {item.country}");
+                    }
+                    Console.WriteLine($"File Successfully Read Content"); //Print msg
                 }
-                Console.WriteLine($"File Successfully Read Content"); //Print msg
+                else
+                {
+                    Console.WriteLine("File Not Exist");
+                }
             }
             catch (Exception ex)
             {
@@ -65,9 +72,9 @@ namespace FileIO_IOStream
 
         public class SetDetails
         {
-            public string name { get; set; } 
+            public string name { get; set; }
             public string email { get; set; }
-            public string phone { get; set; } 
+            public string phone { get; set; }
             public string country { get; set; }
         }
 
