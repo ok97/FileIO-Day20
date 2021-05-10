@@ -25,7 +25,8 @@ namespace FileIO_IOStream
             //XMLOperation.XMLDeserialization();            
             //CSVOperation.CSVWriteOperation();
             // CSVOperation.CSVReadOperation();
-            ThirdPartyLibraryOperation.CSVToJSON();
+            //ThirdPartyLibraryOperation.CSVToJSON();
+            ThirdPartyLibraryOperation.JSONToCSV();
 
             Console.ReadLine(); //Reading from CSV To Json File and writing Json File
         }

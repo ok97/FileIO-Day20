@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 using static FileIO_IOStream.CSVOperation;
+using System.Collections;
 
 namespace FileIO_IOStream
 {
@@ -50,5 +51,39 @@ namespace FileIO_IOStream
             }
 
         }
+
+
+        public static void JSONToCSV()
+        {
+            /* Reading from JSON File and writing CSV File. 
+             */
+            try
+            {
+                string path = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\CSVToJSON.json"; //Set path to create file
+                string Destination = @"D:\Practice\C#\FileIO-IOStream\FileIO-IOStream\Files Operation\JSONToCSV.csv"; //Set path to create file                                                                                                                                                                                                          
+                if (File.Exists(path)) //Check file exist or not
+                {
+                    IList<SetDetails> details = JsonConvert.DeserializeObject<IList< SetDetails >> (File.ReadAllText(path)); //DeserializeObject Jsonvert class use
+                   
+                    using (var writer = new StreamWriter(Destination)) //Write file
+                    using (var csvExport = new CsvWriter(writer,CultureInfo.InvariantCulture)) //csvWriter cdefault class
+                    {
+                        csvExport.WriteRecords(details); //write record
+                    }
+                    Console.WriteLine($"File Successfully Read JSON File Content and Write CSV File"); //Print msg
+                }
+                else
+                {
+                    Console.WriteLine("File Not Exist");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
     }
+    
 }
